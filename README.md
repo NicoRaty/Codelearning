@@ -9,9 +9,10 @@ learn web development and JavaScript.
 ---
 
 ## 🚀 Features
-- An uneditable input area where the script places preset JavaScript code
-- An editable input area for the user to input their answer
-- Buttons to operate the input areas
+- Embedded CodeMirror code-editor for challenges
+- Hints for each challenge
+- Progress tracker
+- Buttons to operate the functionality
 - Alerts to signify success or failure
 
 ---
@@ -21,3 +22,6 @@ Run index.html in a preferred browser
 
 ### Prerequisites
 A web browser.
+
+### Resources used
+- CodeMirror Extensible Code Editor https://codemirror.net/
