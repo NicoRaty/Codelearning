@@ -30,9 +30,19 @@ body {
     font-family: 'Fira Mono', monospace;
 }
 
-header {
+.header {
     background-color: black;
     padding: 20px;     
+    display: flex;
+    justify-content: space-between;
+}
+
+.header a{
+    font-size: 20px;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 300;
+    margin-left: 35px;
 }
 
 main {
