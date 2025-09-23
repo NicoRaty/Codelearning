@@ -20,6 +20,7 @@ const answerBox = document.getElementById("answerBox");
 const hintText = document.getElementById("hintText");
 const checkBtn = document.getElementById("checkBtn");
 const nextBtn = document.getElementById("nextBtn");
+const progressCounter = document.getElementById("progressCounter");
 
 function loadQuestion() 
 {
@@ -35,6 +36,8 @@ checkBtn.addEventListener("click", () => {
     if (userAnswer === correctAnswer)
     {
         alert("Correct!");
+        progressCounter.textContent = `Progress: ${curQuestion + 1} / ${challenges.length}`;
+
     }
     else 
     {
