@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Learning site</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/darcula.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/javascript/javascript.min.js"></script>
 </head>
 
 <body>    
@@ -17,9 +21,8 @@
         <h1>  Fill in the missing piece of code</h1> 
         <div id="mainGrid">
             <div id="codeInput">
-                <input type="text" id="questionBox" readonly>
-                <br>
-                <input type="text" id="answerBox" placeholder="Type your answer here">
+                <textarea id="questionBox"></textarea>
+                
             </div>
         <div>
             <!-- <textarea id="hintText"></textarea> -->
@@ -32,5 +35,6 @@
         </div>
     </main>
     <script src="script.js"></script>
-    
+
+</script>
 </body>
