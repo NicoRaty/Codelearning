@@ -3,7 +3,7 @@ var textarea = document.getElementById("questionBox");
 var editor = CodeMirror.fromTextArea(textarea, {
     lineNumbers: true,
     mode: "javascript",
-    theme: "darcula",
+    theme: "shadowfox",
     indentUnit: 2,
     tabSize: 2,
     matchBrackets: true
