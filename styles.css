@@ -1,3 +1,21 @@
+/*
+--bg-dark: oklch(0.1 0.07 234);
+--bg: oklch(0.15 0.07 234);
+--bg-light: oklch(0.2 0.07 234);
+--text: oklch(0.96 0.1 234);
+--text-muted: oklch(0.76 0.1 234);
+--highlight: oklch(0.5 0.14 234);
+--border: oklch(0.4 0.14 234);
+--border-muted: oklch(0.3 0.14 234);
+--primary: oklch(0.76 0.14 234);
+--secondary: oklch(0.76 0.14 54);
+--danger: oklch(0.7 0.14 30);
+--warning: oklch(0.7 0.14 100);
+--success: oklch(0.7 0.14 160);
+--info: oklch(0.7 0.14 260);
+*/
+
+
 body {
     background: 
     linear-gradient(0deg, #00000088 80%, #181818 100%), 
