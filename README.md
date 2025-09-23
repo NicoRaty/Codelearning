@@ -20,8 +20,8 @@ learn web development and JavaScript.
 ## 🛠 Installation / Setup
 Run index.html in a preferred browser
 
-### Prerequisites
+### ⚡ Prerequisites
 A web browser.
 
-### Resources used
+###  📚 Resources used
 - CodeMirror Extensible Code Editor https://codemirror.net/
