@@ -38,7 +38,7 @@ let curQuestion = 0;    //Index counter for challenges
 function loadQuestion() 
 {
     editor.setValue(challenges[curQuestion].question);
-    //hintText.value = challenges[curQuestion].hint;
+    hintText.innerText = challenges[curQuestion].hint;
 }
 
 //Event listeners for buttons
