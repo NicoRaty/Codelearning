@@ -36,7 +36,7 @@ checkBtn.addEventListener("click", () => {
     if (userAnswer === correctAnswer)
     {
         alert("Correct!");
-        progressCounter.textContent = `Progress: ${curQuestion + 1} / ${challenges.length}`;
+        //progressCounter.textContent = `Progress: ${curQuestion + 1} / ${challenges.length}`;
 
     }
     else 
