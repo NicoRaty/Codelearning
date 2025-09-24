@@ -5,6 +5,9 @@ const checkBtn = document.getElementById("checkBtn");
 const nextBtn = document.getElementById("nextBtn");
 const progressCounter = document.getElementById("progressCounter");
 
+let incorrect = 0;
+let progress = 0;
+
 
 var editor = CodeMirror.fromTextArea(questionBox, {
     lineNumbers: true,
@@ -38,27 +41,34 @@ let curQuestion = 0;    //Index counter for challenges
 function loadQuestion() 
 {
     editor.setValue(challenges[curQuestion].question);
-    hintText.innerText = challenges[curQuestion].hint;
+    //hintText.innerText = challenges[curQuestion].hint;
+    progressCounter.textContent = `Progress: ${progress} / ${challenges.length}`;
 }
 
 //Event listeners for buttons
-checkBtn.addEventListener("click", () => {
+
+nextBtn.addEventListener("click", () => {
     const userAnswer = editor.getValue();
     const correctAnswer = challenges[curQuestion].answer;
+    if (incorrect >= 3 && userAnswer !== correctAnswer)
+    {
+        hintText.innerText = challenges[curQuestion].hint;
+    }
     if (userAnswer === correctAnswer)
     {
-        alert("Correct!");
-        progressCounter.textContent = `Progress: ${curQuestion + 1} / ${challenges.length}`;
-
+        progress++;
+        progressCounter.textContent = `Progress: ${progress} / ${challenges.length}`;
+        curQuestion = (curQuestion + 1) % challenges.length;
+        loadQuestion();
     }
     else 
     {
+        incorrect++;
         alert("Incorrect! Try again!");
     }
-});
-nextBtn.addEventListener("click", () => {
-    curQuestion = (curQuestion + 1) % challenges.length;
-    loadQuestion();
+    hintText.innerText = "";
+    incorrectCounter = 0;
+    
 });
 
 loadQuestion();

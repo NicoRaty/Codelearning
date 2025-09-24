@@ -64,7 +64,7 @@
     }
 
 .main-content {
-    margin-left: 220px;
+    margin-left: 120px;
     padding: 0;
 }
 
@@ -86,8 +86,6 @@ body {
     padding: 20px;     
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    z-index: 100;
 }
 
 .header a{
