@@ -5,6 +5,7 @@ Nico Räty, Juho Karvonen
 Codelearning is a website intended for learning JavaScript at a beginner level.
 This project is made with the intention that the authors
 learn web development and JavaScript.
+--THIS IS A WORK IN PROGRESS!--
 
 ---
 
