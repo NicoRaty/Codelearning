@@ -12,29 +12,37 @@
 </head>
 
 <body>    
-    <header class="header">
-        <a href="#" class="logo">Code Learning</a>
-        <a href="#" id="progressCounter">Progress:</a>
-    </header>
+    <div class="sidebar">
+        <h2>Challenges</h2>
+        <ul>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <header class="header">
+            <a href="#" class="logo">Code Learning</a>
+            <a href="#" id="progressCounter">Progress:</a>
+        </header>
 
-    <main>
-        <h1>  Fill in the missing piece of code</h1> 
-        <div id="mainGrid">
-            <div id="codeInput">
-                <textarea id="questionBox"></textarea>
-                
+        <main>
+            <h1>  Fill in the missing piece of code (underlined)</h1> 
+            <div id="mainGrid">
+                <div id="codeInput">
+                    <textarea id="questionBox"></textarea>
+                </div>
+            <div>
+                  <h1 id="hintText"></h1>
             </div>
-        <div>
-              <h1 id="hintText"></h1>
-        </div>
 
-        </div>
-        <div class="button-container">
-            <button id="checkBtn">Check</button>
-            <button id="nextBtn">Next</button>
-        </div>
-    </main>
-    <script src="script.js"></script>
-
-</script>
+            </div>
+            <div class="button-container">
+                <button id="checkBtn">Check</button>
+                <button id="nextBtn">Next</button>
+            </div>
+        </main>
+        <script src="script.js"></script>
+    </div>
 </body>

@@ -1,3 +1,4 @@
+
 /*
 --bg-dark: oklch(0.1 0.07 234);
 --bg: oklch(0.15 0.07 234);
@@ -15,7 +16,45 @@
 --info: oklch(0.7 0.14 260);
 */
 
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 130px;
+    height: 100vh;
+    background: #181818ee;
+    color: #fff;
+    padding: 30px 15px 0 15px;
+    box-shadow: 2px 0 8px #0004;
+    z-index: 100;
+}
+.sidebar h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+.sidebar ul li {
+    margin-bottom: 1em;
+}
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.2s;
+}
+.sidebar ul li a:hover {
+    color: #76aaff;
+}
 
+.main-content {
+    margin-left: 220px;
+    padding: 0;
+}
 body {
     background: 
     linear-gradient(0deg, #00000088 80%, #181818 100%), 
@@ -36,6 +75,8 @@ body {
     padding: 20px;     
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    z-index: 100;
 }
 
 .header a{
