@@ -67,6 +67,7 @@ body {
     flex-direction: column;  
     min-height: 100vh;      
     font-family: 'Fira Mono', monospace;
+    overflow: hidden;
 }
 
 .header {
