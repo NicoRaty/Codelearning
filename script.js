@@ -59,6 +59,8 @@ nextBtn.addEventListener("click", () => {
         progress++;
         progressCounter.textContent = `Progress: ${progress} / ${challenges.length}`;
         curQuestion = (curQuestion + 1) % challenges.length;
+        hintText.innerText = "";
+        incorrectCounter = 0;
         loadQuestion();
     }
     else 
@@ -66,9 +68,6 @@ nextBtn.addEventListener("click", () => {
         incorrect++;
         alert("Incorrect! Try again!");
     }
-    hintText.innerText = "";
-    incorrectCounter = 0;
-    
 });
 
 loadQuestion();
