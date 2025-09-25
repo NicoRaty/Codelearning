@@ -28,18 +28,22 @@
     box-shadow: 2px 0 8px #0004;
     z-index: 100;
 }
+
 .sidebar h2 {
     margin-top: 0;
     font-size: 1.5em;
     margin-bottom: 1em;
 }
+
 .sidebar ul {
     list-style: none;
     padding: 0;
 }
+
 .sidebar ul li {
     margin-bottom: 1em;
 }
+
 .sidebar ul li a {
     color: #fff;
     text-decoration: none;
@@ -195,3 +199,26 @@ button:hover {
     background-color: #181818; 
 }
 
+
+
+.flash-green {
+    border-color: var(--success);
+    animation: flash-green 0.6s ease;
+}
+
+@keyframes flash-green {
+    0%   { border-color: white; }
+    50%  { border-color: rgb(102, 255, 0); }
+    100% { border-color: white; }
+}
+
+.flash-red {
+    border-color: var(--danger);
+    animation: flash-red 0.6s ease;
+}
+
+@keyframes flash-red {
+    0%   { border-color: white; }
+    50%  { border-color: rgb(255, 0, 64); }
+    100% { border-color: white; }
+}

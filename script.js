@@ -58,13 +58,28 @@ nextBtn.addEventListener("click", () => {
     {
         progress++;
         progressCounter.textContent = `Progress: ${progress} / ${challenges.length}`;
+
+        const cmWrapper = editor.getWrapperElement();
+        cmWrapper.classList.add("flash-green");
+
+
+        setTimeout(() => {
+        cmWrapper.classList.remove("flash-green");
+        }, 600);
+
         curQuestion = (curQuestion + 1) % challenges.length;
         loadQuestion();
     }
     else 
     {
         incorrect++;
-        alert("Incorrect! Try again!");
+                            
+        const cmWrapper = editor.getWrapperElement();
+        cmWrapper.classList.add("flash-red");
+        setTimeout(() => {
+        cmWrapper.classList.remove("flash-red");
+    }, 600);
+
     }
     hintText.innerText = "";
     incorrectCounter = 0;
