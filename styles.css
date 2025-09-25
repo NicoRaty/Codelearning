@@ -222,3 +222,33 @@ button:hover {
     50%  { border-color: rgb(255, 0, 64); }
     100% { border-color: white; }
 }
+
+
+.wrong-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: rgb(255, 0, 64);
+  padding: 10px 20px;
+  opacity: 0; 
+  transition: opacity 0.3s ease;
+}
+
+.correct-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: rgb(102, 255, 0);
+  padding: 10px 20px;
+  opacity: 0; 
+  transition: opacity 0.3s ease;
+}
+
+.correct-overlay.show,
+.wrong-overlay.show {
+  opacity: 1;
+}

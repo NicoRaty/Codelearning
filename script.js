@@ -18,7 +18,22 @@ var editor = CodeMirror.fromTextArea(questionBox, {
     matchBrackets: true
 });
 
+//Overlay for the "Correct" message
+const cmWrapper = editor.getWrapperElement();
+cmWrapper.style.position = "relative"; 
+const overlay = document.createElement("div");
+overlay.id = "correctOverlay";
+overlay.className = "correct-overlay";
+overlay.innerText = "Correct";
+cmWrapper.appendChild(overlay);
 editor.setSize("800px", "400px");
+
+// Overlay for the "Wrong" message
+const wrongOverlay = document.createElement("div");
+wrongOverlay.id = "wrongOverlay";
+wrongOverlay.className = "wrong-overlay";
+wrongOverlay.innerText = "Wrong";
+cmWrapper.appendChild(wrongOverlay);
 
 
 //List of all challenges with question and answer
@@ -61,7 +76,12 @@ nextBtn.addEventListener("click", () => {
 
         const cmWrapper = editor.getWrapperElement();
         cmWrapper.classList.add("flash-green");
-
+        
+        const overlay = document.getElementById("correctOverlay");
+        overlay.classList.add("show");
+        setTimeout(() => {
+        overlay.classList.remove("show");
+        }, 600);
 
         setTimeout(() => {
         cmWrapper.classList.remove("flash-green");
@@ -78,7 +98,13 @@ nextBtn.addEventListener("click", () => {
         cmWrapper.classList.add("flash-red");
         setTimeout(() => {
         cmWrapper.classList.remove("flash-red");
-    }, 600);
+        }, 600);
+    
+        const wrongOverlay = document.getElementById("wrongOverlay");
+        wrongOverlay.classList.add("show");
+        setTimeout(() => {
+        wrongOverlay.classList.remove("show");
+        }, 600);
 
     }
     hintText.innerText = "";
