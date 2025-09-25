@@ -11,26 +11,36 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/javascript/javascript.min.js"></script>
 </head>
 
-<body>    
+<body>
     <header class="header">
-        <a href="#" class="logo">Code Learning</a>
-        <a href="#" id="progressCounter">Progress:</a>
-    </header>
+    <a href="#" class="logo">Code Learning</a>
+    <a href="#" id="progressCounter">Progress:</a>
+    </header>    
+    <div class="sidebar">
+        <!--<button class="togglebutton" id="togglebutton">☰</button>-->
+        <h2>Challenges</h2>
+        <ul>
+            <li><a href="#" class="chalBtn" data-index="0">1</a></li>
+            <li><a href="#" class="chalBtn" data-index="1">2</a></li>
+        </ul>
+    </div>
 
-    <main>
-             <!--<button class="togglebutton" id="togglebutton">☰</button>-->mainGrid">
-            <div id="codeInput">
-                atextarea  id="chalBtn"id="auestionBox"></textarea>
-a          id="chalBtn"    a 
-   /div>
+    <div class="main-content">
+        <main>
+            <h1>  Fill in the missing piece of code</h1> 
+            <div id="mainGrid">
+                <div id="codeInput">
+                    <textarea id="questionBox"></textarea>
+                </div>
+            <div>
+                  <h1 id="hintText"></h1>
+            </div>
 
-        </div>
-      <div class="button-container">
-            <button id="checkBtn">Check</button>
-            <button id="nextBtn">Next</button>
-        </div>
-    </main>
-    <script src="script.js"></script>
-
-</script>
+            </div>
+            <div class="button-container">
+                <button id="nextBtn">Next</button>
+            </div>
+        </main>
+        <script src="script.js"></script>
+    </div>
 </body>
