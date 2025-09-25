@@ -69,7 +69,7 @@ let curQuestion = 0;    //Index counter for challenges
 function loadQuestion() 
 {
     editor.setValue(challenges[curQuestion].question);
-    //hintText.innerText = challenges[curQuestion].hint;
+    hintText.innerText = "";
     progressCounter.textContent = `Progress: ${progress} / ${challenges.length}`;
     incorrect = 0;
 }
@@ -79,7 +79,7 @@ function loadQuestion()
 nextBtn.addEventListener("click", () => {
     const userAnswer = editor.getValue();
     const correctAnswer = challenges[curQuestion].answer;
-    if (incorrect >= 3 && userAnswer !== correctAnswer)
+    if (incorrect >= 2 && userAnswer !== correctAnswer)
     {
         hintText.innerText = challenges[curQuestion].hint;
     }
@@ -106,8 +106,7 @@ nextBtn.addEventListener("click", () => {
     }
     else 
     {
-        incorrect++;
-                            
+        incorrect++;         
         const cmWrapper = editor.getWrapperElement();
         cmWrapper.classList.add("flash-red");
         setTimeout(() => {
@@ -121,7 +120,6 @@ nextBtn.addEventListener("click", () => {
         }, 600);
 
     }
-    hintText.innerText = "";
     
 });
 document.querySelectorAll(".chalBtn").forEach((button) => {
