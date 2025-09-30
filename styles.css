@@ -2,13 +2,14 @@
 .sidebar {
     position: fixed;
     left: 0;
-    width: 130px;
+    width: 8vw;
     height: 100vh;
     background: #181818;
     color: #fff;
     padding: 30px 15px 0 15px;
     box-shadow: 2px 0 8px #0004;
     z-index: 100;
+    overflow-y: auto;
 }
 
 .sidebar h2 {
