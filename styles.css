@@ -1,60 +1,61 @@
-
-/*
---bg-dark: oklch(0.1 0.07 234);
---bg: oklch(0.15 0.07 234);
---bg-light: oklch(0.2 0.07 234);
---text: oklch(0.96 0.1 234);
---text-muted: oklch(0.76 0.1 234);
---highlight: oklch(0.5 0.14 234);
---border: oklch(0.4 0.14 234);
---border-muted: oklch(0.3 0.14 234);
---primary: oklch(0.76 0.14 234);
---secondary: oklch(0.76 0.14 54);
---danger: oklch(0.7 0.14 30);
---warning: oklch(0.7 0.14 100);
---success: oklch(0.7 0.14 160);
---info: oklch(0.7 0.14 260);
-*/
-
 /* Sidebar styles */
 .sidebar {
     position: fixed;
     left: 0;
-    top: 0;
     width: 130px;
     height: 100vh;
-    background: #181818ee;
+    background: #181818;
     color: #fff;
     padding: 30px 15px 0 15px;
     box-shadow: 2px 0 8px #0004;
     z-index: 100;
 }
+
 .sidebar h2 {
     margin-top: 0;
     font-size: 1.5em;
     margin-bottom: 1em;
 }
+
 .sidebar ul {
     list-style: none;
     padding: 0;
 }
+
 .sidebar ul li {
     margin-bottom: 1em;
 }
+
 .sidebar ul li a {
     color: #fff;
     text-decoration: none;
     font-size: 1.1em;
     transition: color 0.2s;
+    display: block;
 }
 .sidebar ul li a:hover {
     color: #76aaff;
 }
 
+/*.togglebutton {
+    display: block;
+    top: 15px;
+    left: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    background: black;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    }
+*/
+
 .main-content {
     margin-left: 120px;
     padding: 0;
 }
+
 body {
     background: 
     linear-gradient(0deg, #00000088 80%, #181818 100%), 
@@ -63,8 +64,6 @@ body {
     background-size: cover;      
     background-position: center; 
     margin: 0;
-    display: flex;
-    flex-direction: column;  
     min-height: 100vh;      
     font-family: 'Fira Mono', monospace;
     overflow: hidden;
@@ -124,7 +123,7 @@ main {
 }
 
 .CodeMirror-scroll {
-    height: 400px; /* match the .CodeMirror height */
+    height: 400px; 
     overflow: auto;
 }
 
@@ -184,3 +183,52 @@ button:hover {
     background-color: #181818; 
 }
 
+.flash-green {
+    animation: flash-green 0.6s ease;
+}
+
+@keyframes flash-green {
+    0%   { border-color: white; }
+    50%  { border-color: rgb(102, 255, 0); }
+    100% { border-color: white; }
+}
+
+.flash-red {
+    animation: flash-red 0.6s ease;
+}
+
+@keyframes flash-red {
+    0%   { border-color: white; }
+    50%  { border-color: rgb(255, 0, 64); }
+    100% { border-color: white; }
+}
+
+
+.wrong-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: rgb(255, 0, 64);
+  padding: 10px 20px;
+  opacity: 0; 
+  transition: opacity 0.3s ease;
+}
+
+.correct-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: rgb(102, 255, 0);
+  padding: 10px 20px;
+  opacity: 0; 
+  transition: opacity 0.3s ease;
+}
+
+.correct-overlay.show,
+.wrong-overlay.show {
+  opacity: 1;
+}
