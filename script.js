@@ -82,23 +82,31 @@ nextBtn.addEventListener("click", () => {
     if (userAnswer === correctAnswer)
     {
         progress++;
-        progressCounter.textContent = `Progress: ${progress} / ${challenges.length}`;
+        if (progress >= challenges.length)
+        {
+            alert("Congratulations! You have completed all challenges.");
+        }
+        else
+        {
+            progressCounter.textContent = `Progress: ${progress} / ${challenges.length}`;
 
-        const cmWrapper = editor.getWrapperElement();
-        cmWrapper.classList.add("flash-green");
+            const cmWrapper = editor.getWrapperElement();
+            cmWrapper.classList.add("flash-green");
+            
+            const overlay = document.getElementById("correctOverlay");
+            overlay.classList.add("show");
+            setTimeout(() => {
+            overlay.classList.remove("show");
+            }, 600);
+
+            setTimeout(() => {
+            cmWrapper.classList.remove("flash-green");
+            }, 600);
+
+            curQuestion = (curQuestion + 1) % challenges.length;
+            loadQuestion();
+        }
         
-        const overlay = document.getElementById("correctOverlay");
-        overlay.classList.add("show");
-        setTimeout(() => {
-        overlay.classList.remove("show");
-        }, 600);
-
-        setTimeout(() => {
-        cmWrapper.classList.remove("flash-green");
-        }, 600);
-
-        curQuestion = (curQuestion + 1) % challenges.length;
-        loadQuestion();
     }
     else 
     {        
