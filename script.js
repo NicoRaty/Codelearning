@@ -102,18 +102,30 @@ nextBtn.addEventListener("click", () => {
         }, 600);
 
         curQuestion = (curQuestion + 1) % challenges.length;
-        hintText.innerText = "";
-        incorrectCounter = 0;
         loadQuestion();
     }
     else 
     {
-        incorrect++;
-        alert("Incorrect! Try again!");
+        incorrect++;         
+        const cmWrapper = editor.getWrapperElement();
+        cmWrapper.classList.add("flash-red");
+        setTimeout(() => {
+        cmWrapper.classList.remove("flash-red");
+        }, 600);
+    
+        const wrongOverlay = document.getElementById("wrongOverlay");
+        wrongOverlay.classList.add("show");
+        setTimeout(() => {
+        wrongOverlay.classList.remove("show");
+        }, 600);
+
     }
-    hintText.innerText = "";
-    incorrectCounter = 0;
     
 });
-
+document.querySelectorAll(".chalBtn").forEach((button) => {
+  button.addEventListener("click", () => {
+    curQuestion = parseInt(button.getAttribute("data-index"));
+    loadQuestion();
+  });
+});
 loadQuestion();
