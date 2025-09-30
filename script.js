@@ -1,14 +1,14 @@
 const questionBox = document.getElementById("questionBox");
-const hintText = document.getElementById("hintText");
+const instructionText = document.getElementById("instructionText");
 const checkBtn = document.getElementById("checkBtn");
 const nextBtn = document.getElementById("nextBtn");
 const progressCounter = document.getElementById("progressCounter");
 
 class Challenge {
-    constructor(question, answer, hint) {
+    constructor(question, answer, instruction) {
         this.question = question;
         this.answer = answer;
-        this.hint = hint;
+        this.instruction = instruction;
     }
 }
 
@@ -69,9 +69,8 @@ let curQuestion = 0;    //Index counter for challenges
 function loadQuestion() 
 {
     editor.setValue(challenges[curQuestion].question);
-    hintText.innerText = "";
+    instructionText.innerText = challenges[curQuestion].instruction;
     progressCounter.textContent = `Progress: ${progress} / ${challenges.length}`;
-    incorrect = 0;
 }
 
 //Event listeners for buttons
@@ -79,10 +78,7 @@ function loadQuestion()
 nextBtn.addEventListener("click", () => {
     const userAnswer = editor.getValue();
     const correctAnswer = challenges[curQuestion].answer;
-    if (incorrect >= 2 && userAnswer !== correctAnswer)
-    {
-        hintText.innerText = challenges[curQuestion].hint;
-    }
+
     if (userAnswer === correctAnswer)
     {
         progress++;
@@ -105,8 +101,7 @@ nextBtn.addEventListener("click", () => {
         loadQuestion();
     }
     else 
-    {
-        incorrect++;         
+    {        
         const cmWrapper = editor.getWrapperElement();
         cmWrapper.classList.add("flash-red");
         setTimeout(() => {

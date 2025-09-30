@@ -144,6 +144,14 @@ h1 {
     text-align: right;
 }
 
+#instructionText {
+    color: white;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 35vw;
+}
+
 #questionBox {
     background: black;
     color: white;
