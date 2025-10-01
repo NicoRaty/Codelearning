@@ -42,6 +42,9 @@ wrongOverlay.innerText = "Wrong";
 cmWrapper.appendChild(wrongOverlay);
 
 
+//Set to track completed challenges
+const completedChallenges = new Set();
+
 //List of all challenges with question and answer
 /*const challenges = [
 {
@@ -73,9 +76,20 @@ nextBtn.addEventListener("click", () => {
     const userAnswer = editor.getValue();
     const correctAnswer = challenges[curQuestion].answer;
 
-    if (userAnswer === correctAnswer)
+    if (userAnswer === correctAnswer) 
     {
-        progress++;
+        if (!completedChallenges.has(curQuestion)) {
+            completedChallenges.add(curQuestion);
+            progress++;
+        }
+
+
+          const nextButton = document.querySelector(`.chalBtn[data-index="${progress}"]`);
+        if (nextButton) {
+            nextButton.disabled = false;
+            nextButton.classList.remove("locked");
+        }
+        
         if (progress >= challenges.length)
         {
             alert("Congratulations! You have completed all challenges.");
@@ -119,10 +133,21 @@ nextBtn.addEventListener("click", () => {
     }
     
 });
+
 document.querySelectorAll(".chalBtn").forEach((button) => {
+  const index = parseInt(button.getAttribute("data-index"));
+
+
+  if (index > progress) {
+    button.disabled = true;
+    button.classList.add("locked"); 
+  }
+
   button.addEventListener("click", () => {
-    curQuestion = parseInt(button.getAttribute("data-index"));
-    loadQuestion();
+
+    if (index <= progress) {
+      curQuestion = index;
+      loadQuestion();
+    }
   });
 });
-loadQuestion();
