@@ -127,3 +127,4 @@ document.querySelectorAll(".chalBtn").forEach((button) => {
     }
   });
 });
+loadQuestion();
