@@ -3,6 +3,7 @@ const instructionText = document.getElementById("instructionText");
 const checkBtn = document.getElementById("checkBtn");
 const nextBtn = document.getElementById("nextBtn");
 const progressCounter = document.getElementById("progressCounter");
+const completedChallenges = new Set();
 
 const challenges = [
     chal1, chal2, chal3, chal4, chal5,
@@ -41,27 +42,7 @@ wrongOverlay.className = "wrong-overlay";
 wrongOverlay.innerText = "Wrong";
 cmWrapper.appendChild(wrongOverlay);
 
-
-//Set to track completed challenges
-const completedChallenges = new Set();
-
-//List of all challenges with question and answer
-/*const challenges = [
-{
-    question: "console.___('Hello World!')",
-    answer: "console.log('Hello World!')",
-    hint: "You are logging a phrase into the console"
-},
-{
-    question: "for (let i = 0; i ____ 3; i++) { console.log(i); }",
-    answer: "for (let i = 0; i < 3; i++) { console.log(i); }",
-    hint: "The loop should continue until the iterator reaches the value 3"
-}
-];
-*/
-
 let curQuestion = 0;    //Index counter for challenges
-
 
 function loadQuestion() 
 {
@@ -71,7 +52,6 @@ function loadQuestion()
 }
 
 //Event listeners for buttons
-
 nextBtn.addEventListener("click", () => {
     const userAnswer = editor.getValue();
     const correctAnswer = challenges[curQuestion].answer;
@@ -84,10 +64,10 @@ nextBtn.addEventListener("click", () => {
         }
 
 
-          const nextButton = document.querySelector(`.chalBtn[data-index="${progress}"]`);
-        if (nextButton) {
-            nextButton.disabled = false;
-            nextButton.classList.remove("locked");
+        const chalButton = document.querySelector(`.chalBtn[data-index="${progress}"]`);
+        if (chalButton) {
+            chalButton.disabled = false;
+            chalButton.classList.remove("locked");
         }
         
         if (progress >= challenges.length)
@@ -129,20 +109,16 @@ nextBtn.addEventListener("click", () => {
         setTimeout(() => {
         wrongOverlay.classList.remove("show");
         }, 600);
-
     }
-    
 });
 
 document.querySelectorAll(".chalBtn").forEach((button) => {
   const index = parseInt(button.getAttribute("data-index"));
 
-
   if (index > progress) {
     button.disabled = true;
     button.classList.add("locked"); 
   }
-
   button.addEventListener("click", () => {
 
     if (index <= progress) {
