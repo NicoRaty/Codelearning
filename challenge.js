@@ -9,7 +9,7 @@ class Challenge {
 const chal1 = new Challenge(
     "console.___('Hello World!')",
      "console.log('Hello World!')", 
-     "Try logging 'Hello World!' to the console"
+     "Try logging 'Hello World!' to the console (Replace the underlined part with the correct code)"
 );
 
 const chal2 = new Challenge(

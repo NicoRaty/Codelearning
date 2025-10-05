@@ -2,6 +2,7 @@ const questionBox = document.getElementById("questionBox");
 const instructionText = document.getElementById("instructionText");
 const nextBtn = document.getElementById("nextBtn");
 const progressCounter = document.getElementById("progressCounter");
+const maincontent = document.getElementById("main-content");
 const completedChallenges = new Set();
 
 const challenges = [
@@ -71,24 +72,23 @@ nextBtn.addEventListener("click", () => {
         
         if (progress >= challenges.length)
         {
-            alert("Congratulations! You have completed all challenges.");
-        }
-        else
-        {
-            progressCounter.textContent = `Progress: ${progress} / ${challenges.length}`;
-
             const cmWrapper = editor.getWrapperElement();
+            let congratsOverlay = document.getElementById("congratsOverlay");
+            if (!congratsOverlay) {
+                congratsOverlay = document.createElement("div");
+                congratsOverlay.id = "congratsOverlay";
+                congratsOverlay.className = "correct-overlay";
+                congratsOverlay.innerText = "Congratulations! You have completed all challenges.";
+                cmWrapper.appendChild(congratsOverlay);
+            }
             cmWrapper.classList.add("flash-green");
-
-            const overlay = document.getElementById("correctOverlay");
-            overlay.classList.add("show");
+            congratsOverlay.classList.add("show");
             setTimeout(() => {
-            overlay.classList.remove("show");
-            }, 600);
-
+                congratsOverlay.classList.remove("show");
+            }, 1200);
             setTimeout(() => {
-            cmWrapper.classList.remove("flash-green");
-            }, 600);
+                cmWrapper.classList.remove("flash-green");
+            }, 1200);
 
             curQuestion = (curQuestion + 1) % challenges.length;
             loadQuestion();

@@ -89,6 +89,7 @@ main {
     flex-direction: column;        
     text-align: left;
     padding-left: 5%;
+    margin-left: 2%;
 }
 
 #mainGrid {
