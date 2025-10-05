@@ -1,6 +1,5 @@
 const questionBox = document.getElementById("questionBox");
 const instructionText = document.getElementById("instructionText");
-const checkBtn = document.getElementById("checkBtn");
 const nextBtn = document.getElementById("nextBtn");
 const progressCounter = document.getElementById("progressCounter");
 const completedChallenges = new Set();
@@ -80,7 +79,7 @@ nextBtn.addEventListener("click", () => {
 
             const cmWrapper = editor.getWrapperElement();
             cmWrapper.classList.add("flash-green");
-            
+
             const overlay = document.getElementById("correctOverlay");
             overlay.classList.add("show");
             setTimeout(() => {
