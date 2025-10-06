@@ -70,8 +70,7 @@ nextBtn.addEventListener("click", () => {
             chalButton.classList.remove("locked");
         }
         
-        if (progress >= challenges.length)
-        {
+        if (progress >= challenges.length) {
             const cmWrapper = editor.getWrapperElement();
             let congratsOverlay = document.getElementById("congratsOverlay");
             if (!congratsOverlay) {
@@ -81,14 +80,29 @@ nextBtn.addEventListener("click", () => {
                 congratsOverlay.innerText = "Congratulations! You have completed all challenges.";
                 cmWrapper.appendChild(congratsOverlay);
             }
+
             cmWrapper.classList.add("flash-green");
             congratsOverlay.classList.add("show");
+
             setTimeout(() => {
                 congratsOverlay.classList.remove("show");
-            }, 1200);
+            }, 2000);
+
             setTimeout(() => {
                 cmWrapper.classList.remove("flash-green");
-            }, 1200);
+            }, 2000);
+        }
+        else {
+            progressCounter.textContent = `Progress: ${progress} / ${challenges.length}`;
+
+            cmWrapper.classList.add("flash-green");
+            const overlay = document.getElementById("correctOverlay");
+            overlay.classList.add("show");
+
+            setTimeout(() => {
+                overlay.classList.remove("show");
+                cmWrapper.classList.remove("flash-green");
+            }, 600);
 
             curQuestion = (curQuestion + 1) % challenges.length;
             loadQuestion();
