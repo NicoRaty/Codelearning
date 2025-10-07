@@ -1,3 +1,7 @@
+/*
+* Challenges are defined, constructed and instaciated here
+*/
+
 class Challenge {
     constructor(question, answer, instruction) {
         this.question = question;

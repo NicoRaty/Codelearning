@@ -11,15 +11,16 @@ learn web development and JavaScript.
 
 ## 🚀 Features
 - Embedded CodeMirror code-editor for challenges
-- Hints for each challenge
+- Instructions for each challenge
 - Progress tracker
 - Buttons to operate the functionality
-- Alerts to signify success or failure
+- Alerts to signify success or failure and completion of all challenges
+- Sidebar to jump between completed challenges
 
 ---
 
 ## 🛠 Installation / Setup
-Run index.html in a preferred browser
+Run index.html in a preferred browser, not deployed as of now
 
 ### ⚡ Prerequisites
 A web browser.

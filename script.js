@@ -1,10 +1,15 @@
+/*
+* Main script for the functionality of the Web Page
+*/
+
+//constants for page elements
 const questionBox = document.getElementById("questionBox");
 const instructionText = document.getElementById("instructionText");
 const nextBtn = document.getElementById("nextBtn");
 const progressCounter = document.getElementById("progressCounter");
 const maincontent = document.getElementById("main-content");
-const completedChallenges = new Set();
-
+const completedChallenges = new Set();  //Set to store completed challenges
+//Ready array to ensure challenges are added properly
 const challenges = [
     chal1, chal2, chal3, chal4, chal5,
     chal6, chal7, chal8, chal9, chal10,
@@ -12,17 +17,16 @@ const challenges = [
     chal16, chal17, chal18, chal19, chal20,
     chal21, chal22, chal23, chal24, chal25];
 
-let incorrect = 0;
 let progress = 0;
 
-
+//Embed CodeMirror code editor for challenges
 var editor = CodeMirror.fromTextArea(questionBox, {
     lineNumbers: true,
     mode: "javascript",
     theme: "yonce",
     indentUnit: 2,
     tabSize: 2,
-    matchBrackets: true
+    matchBrackets: true,
 });
 
 //Overlay for the "Correct" message
@@ -49,6 +53,7 @@ function loadQuestion()
     editor.setValue(challenges[curQuestion].question);
     instructionText.innerText = challenges[curQuestion].instruction;
     progressCounter.textContent = `Progress: ${progress} / ${challenges.length}`;
+
 }
 
 //Event listeners for buttons
@@ -56,6 +61,7 @@ nextBtn.addEventListener("click", () => {
     const userAnswer = editor.getValue();
     const correctAnswer = challenges[curQuestion].answer;
 
+    //All possible outcomes from receiving correct answer
     if (userAnswer === correctAnswer) 
     {
         if (!completedChallenges.has(curQuestion)) {
@@ -63,35 +69,36 @@ nextBtn.addEventListener("click", () => {
             progress++;
         }
 
-
+        //Ensures the relevant sidebar button is unlocked after completion
         const chalButton = document.querySelector(`.chalBtn[data-index="${progress}"]`);
         if (chalButton) {
             chalButton.disabled = false;
             chalButton.classList.remove("locked");
         }
         
+        //Incase all challenges are completed
         if (progress >= challenges.length) {
             const cmWrapper = editor.getWrapperElement();
             let congratsOverlay = document.getElementById("congratsOverlay");
-            if (!congratsOverlay) {
-                congratsOverlay = document.createElement("div");
-                congratsOverlay.id = "congratsOverlay";
-                congratsOverlay.className = "correct-overlay";
-                congratsOverlay.innerText = "Congratulations! You have completed all challenges.";
-                cmWrapper.appendChild(congratsOverlay);
-            }
+            congratsOverlay = document.createElement("div");
+            congratsOverlay.id = "congratsOverlay";
+            congratsOverlay.className = "correct-overlay";
+            congratsOverlay.innerText = "Congratulations! You have completed all challenges.";
+            cmWrapper.appendChild(congratsOverlay);
+            
 
             cmWrapper.classList.add("flash-green");
             congratsOverlay.classList.add("show");
 
             setTimeout(() => {
                 congratsOverlay.classList.remove("show");
-            }, 2000);
+            }, 5000);
 
             setTimeout(() => {
                 cmWrapper.classList.remove("flash-green");
-            }, 2000);
+            }, 5000);
         }
+
         else {
             progressCounter.textContent = `Progress: ${progress} / ${challenges.length}`;
 
@@ -109,6 +116,7 @@ nextBtn.addEventListener("click", () => {
         }
         
     }
+    //Incorrect answer handling
     else 
     {        
         const cmWrapper = editor.getWrapperElement();
@@ -125,6 +133,7 @@ nextBtn.addEventListener("click", () => {
     }
 });
 
+//Handle all sidebar buttons
 document.querySelectorAll(".chalBtn").forEach((button) => {
   const index = parseInt(button.getAttribute("data-index"));
 
@@ -132,6 +141,7 @@ document.querySelectorAll(".chalBtn").forEach((button) => {
     button.disabled = true;
     button.classList.add("locked"); 
   }
+
   button.addEventListener("click", () => {
 
     if (index <= progress) {
@@ -140,4 +150,6 @@ document.querySelectorAll(".chalBtn").forEach((button) => {
     }
   });
 });
+
+//Initializes first question on start
 loadQuestion();
