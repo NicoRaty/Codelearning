@@ -9,6 +9,7 @@ const nextBtn = document.getElementById("nextBtn");
 const progressCounter = document.getElementById("progressCounter");
 const maincontent = document.getElementById("main-content");
 const completedChallenges = new Set();  //Set to store completed challenges
+
 //Ready array to ensure challenges are added properly
 const challenges = [
     chal1, chal2, chal3, chal4, chal5,
@@ -89,6 +90,7 @@ nextBtn.addEventListener("click", () => {
 
             cmWrapper.classList.add("flash-green");
             congratsOverlay.classList.add("show");
+            progress++;
 
             setTimeout(() => {
                 congratsOverlay.classList.remove("show");
@@ -116,6 +118,7 @@ nextBtn.addEventListener("click", () => {
         }
         
     }
+
     //Incorrect answer handling
     else 
     {        
